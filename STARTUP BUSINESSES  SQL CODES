@@ -1,0 +1,87 @@
+SQL CODES FOR STARTUP BUSINESSES 
+
+# Get a list of failed startups.
+ select * from startupscompanies where status ='failed';
+
+
+# Find all startups founded after 2018
+select* from startupscompanies where founded_year>2018;
+
+# the number of startups in each industry, sorted by the highest count
+select industry,count(*)as total from startupscompanies 
+group by industry
+order by total desc;
+
+ # Retrieve the earliest and latest startup founded year.
+ select   
+  max(founded_year) as latest_year,
+ min(founded_year) as startup_year
+  from startupscompanies;
+
+# Find the number of startups in each country
+select distinct country,count(*)as total_companies from startupscompanies
+group by country;
+
+# Rank startups by their founded year (oldest first).
+select name,founded_year, rank()
+over(order by founded_year asc)as RANK_ACC_TO_YEAR 
+from startupscompanies;
+  
+  # Find the most common industry among startups
+  SELECT industry, COUNT(*) AS IndustryCount 
+FROM StartupsCompanies 
+GROUP BY industry 
+ORDER BY IndustryCount DESC 
+LIMIT 1;
+
+#Get the percentage of failed startups.
+select round(count(case
+when status='failed' then 1 end)*100/
+count(*),2) as failurepercentage  from startupscompanies ;
+
+# List all startups with their failure reasons
+SELECT SC.Name AS StartupName,FR.reason_description
+from startupscompanies AS SC join failurereasons as FR
+  ON SC.startup_id = FR.startup_id
+WHERE SC.status = 'Failed';
+
+select* FROM startupscompanies;
+select* from reasons;
+select* from funding;
+select* from investors_table;
+
+
+# Retrieve a list of investors and the startups they invested in, along with the investment amoun
+ SELECT i.name AS InvestorName,s.name AS StartupName,
+f.amount AS InvestmentAmount,f.round AS FundingRound,
+f.year AS InvestmentYear FROM 
+Funding AS f JOIN 
+StartupsCompanies AS s ON f.startup_id = s.startup_id JOIN 
+ investors_table i ON f.investor_id = i.investor_id
+ORDER BY i.name, s.name;
+
+# Find startups that have  received any funding by using a LEFT JOIN with funding data
+ select* from funding;
+ select F.startup_id,SC.name AS STARTUPS ,F.amount AS FUNDING_AMOUNT from funding as F 
+ left join startupscompanies AS SC 
+ ON F.startup_id= SC.startup_id;
+ 
+#  Find the most recent investment received by each startup
+ select  MAX(year) AS LATEST_YEAR ,MIN(year) AS EARLIEST_YEAR 
+ FROM funding order by NAME DESC;
+ 
+ # Get a list of all entities (startups, AMOUNT and investors) involved in the ecosystem
+ select name AS COMPANIES FROM startupscompanies
+ UNION
+ SELECT amount
+ FROM funding
+ union
+ select NAME AS INVESTORS FROM investors_table;
+
+
+ 
+ 
+ 
+ 
+ 
+ 
