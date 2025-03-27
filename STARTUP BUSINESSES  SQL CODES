@@ -70,13 +70,7 @@ ORDER BY i.name, s.name;
  select  MAX(year) AS LATEST_YEAR ,MIN(year) AS EARLIEST_YEAR 
  FROM funding order by NAME DESC;
  
- # Get a list of all entities (startups, AMOUNT and investors) involved in the ecosystem
- select name AS COMPANIES FROM startupscompanies
- UNION
- SELECT amount
- FROM funding
- union
- select NAME AS INVESTORS FROM investors_table;
+ 
 
 
  
