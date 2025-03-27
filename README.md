@@ -12,26 +12,24 @@ The Startup Businesses Project aims to analyze the landscape of startups, their 
   *Compare industries attracting the most investments
   *Find relationships between funding, location, and industry
 
-3️⃣ Data Sources
+ 🚀Data Sources
 The project utilizes datasets containing:
   *Startups: Name, industry, country, founding year, and business stage
   *Investments: Funding rounds, amounts, investors
   *Founders & Investors: Profiles, networks, and contributions
 
-4️⃣ Key Analytical Approaches
-  ✅ Data Cleaning & Preparation: Handling missing values, standardizing formats
-  ✅ Exploratory Data Analysis (EDA): Trends in funding, startup growth, investor preferences
+🚀 Key Analytical Approaches
   ✅ SQL Joins & Unions: Connecting different tables to derive meaningful insights
-  ✅ Visualization: Graphs and dashboards for better understanding
+  ✅ raw data on Startup database using kaggle platform
 
-5️⃣ Insights & Findings
+🚀 Insights & Findings
   📌 Top-Funded Startups: Identified leading startups with the highest funding rounds
   📌 Investor Behavior: Trends in which industries investors focus on the most
   📌 Funding Trends: Common funding stages (Seed, Series A, Series B, etc.) and their impact
   📌 Geographical Influence: How location affects funding availability
   📌 Sector-Wise Investment: Most profitable startup industries (Tech, Healthcare, etc.)
 
-6️⃣ Business Recommendations
+🚀 Business Recommendations
   📊 For Startups: Focus on high-growth industries, target active investors, optimize pitch strategies
   📊 For Investors: Identify emerging sectors, analyze past funding successes, diversify investments
   📊 For Policymakers: Support startup hubs, create funding-friendly regulations
